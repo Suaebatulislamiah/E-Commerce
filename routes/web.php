@@ -30,7 +30,7 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['role:admin'])->group(function () {
         Route::resource('/kategori', KategoriController::class);
         Route::resource('/produk', ProdukController::class);
-        // Route::resource('/pelanggan', PelangganController::class);
+        //Route::resource('/pelanggan', PelangganController::class);
         Route::resource('/pesanan', PesananController::class);
         Route::resource('/users', UserController::class);
     });

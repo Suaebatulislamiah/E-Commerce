@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ItemPesanan extends Model
 {
-    protected $fillable = ['pesanan_id', 'produk_id', 'jumlah', 'harga'];
+    protected $fillable = ['pesanan_id', 'produk_id', 'jumlah', 'subtotal'];
 
     // Relasi ke pesanan (many to one)
     public function pesanan()
@@ -19,4 +19,9 @@ class ItemPesanan extends Model
     {
         return $this->belongsTo(Produk::class);
     }
-}
+
+    public function itemPesanans()
+    {
+        return $this->hasMany(ItemPesanan::class);
+    }
+    }

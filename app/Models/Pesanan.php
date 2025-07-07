@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pesanan extends Model
 {
-    protected $fillable = ['pelanggan_id', 'total', 'status', 'metode_pembayaran'];
+    protected $fillable = ['pelanggan_id', 'total', 'status', 'metode_pembayaran',];
 
     // Relasi ke item pesanan (one to many)
     public function itemPesanan()

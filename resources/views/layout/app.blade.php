@@ -45,16 +45,16 @@
   </button>
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <div class="navbar-nav">
-    <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="#">Sign out</a>
-    </div>
+  <div class="nav-item text-nowrap">
+    <a class="nav-link px-3" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+      Sign out
+    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      @csrf
+    </form>
   </div>
+</div>
 </header>
-<a href="#" class="nav-link px-3" onclick="event.preventDefault(); documen.getElmentById('logout-form').sumbit();">Logout</a>
-
-<form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
-  @csrf
-</form>
 
 <div class="container-fluid">
   <div class="row">
@@ -67,7 +67,7 @@
               Dashboard
             </a>
           </li>
-          
+          @if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('gudang'))
           <li class="nav-item">
             <a class="nav-link" href="{{ route ('kategori.index') }}">
               <span data-feather="file"></span>
@@ -80,15 +80,18 @@
               Products
             </a>
           </li>
-         
+          @endif
+          @if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('pelanggan'))
           <li class="nav-item">
             <a class="nav-link" href="{{ route ('pesanan.index') }}">
               <span data-feather="bar-chart-2"></span>
               Pesanan
             </a>
           </li>
+          @endif
+          @if (auth()->user()->hasRole('admin'))
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route ('pelanggan.index') }}">
               <span data-feather="users"></span>
               pelanggan
             </a>
@@ -99,6 +102,7 @@
               Pengguna
             </a>
           </li>
+          @endif
         </ul>
 
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
@@ -107,31 +111,6 @@
             <span data-feather="plus-circle"></span>
           </a>
         </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Current month
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Last quarter
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Social engagement
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Year-end sale
-            </a>
-          </li>
         </ul>
       </div>
     </nav>

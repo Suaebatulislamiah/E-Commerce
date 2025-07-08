@@ -12,6 +12,7 @@
                 <span>{{ $role }}</span>
             @endforeach
         </p>
+
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}

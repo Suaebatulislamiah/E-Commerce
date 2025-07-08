@@ -36,7 +36,7 @@
 
     <!-- Produk Section -->
     <section id="produk" class="container mx-auto px-4 py-10">
-        <h2 class="text-3xl font-bold mb-6">Produk Terbaru</h2>
+        <h2 class="text-3xl font-bold text-center mb-8">Produk Unggulan</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             @forelse($produk as $produk)
                 <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center">
@@ -55,5 +55,12 @@
             @endforelse
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4 mt-12">
+        <div class="container mx-auto text-center">
+            <p>&copy; {{ date('Y') }} E-Commerce. Hak Akses Dilindumgi</p>
+            <p>Designed by Miaww___7😉</p>
+        </div>
 </body>
 </html>

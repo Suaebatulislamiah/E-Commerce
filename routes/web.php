@@ -33,12 +33,14 @@ Route::middleware(['auth'])->group(function () {
         //Route::resource('/pelanggan', PelangganController::class);
         Route::resource('/pesanan', PesananController::class);
         Route::resource('/users', UserController::class);
+        Route::resource('pelanggan', PelangganController::class);
     });
 
     // Group untuk Gudang (Akses CRUD Kategori dan Produk)
     Route::middleware(['role:gudang|admin'])->group(function () {
         Route::resource('/kategori', KategoriController::class);
         Route::resource('/produk', ProdukController::class)->only(['index', 'create', 'store', 'edit', 'update', 'show']);
+        Route::resource('pelanggan', PelangganController::class);
     });
 
     // Group untuk Pelanggan (Hanya CRUD Pesanan)

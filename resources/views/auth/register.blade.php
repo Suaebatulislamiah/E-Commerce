@@ -62,7 +62,7 @@
 </head>
 <body>
     <div class="login-container">
-        <h1>si umkm</h1>
+        <h1>E-Commerce</h1>
         <h2>Register</h2>
 
         @if (session('success'))

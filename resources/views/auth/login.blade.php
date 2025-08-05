@@ -70,7 +70,7 @@
 </head>
 <body>
     <div class="login-container">
-        <h1>E-Comerce</h1>
+        <h1>E-Commerce</h1>
         <h2>Login</h2>
 
         @if ($errors->any())

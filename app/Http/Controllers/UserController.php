@@ -18,8 +18,8 @@ class UserController extends Controller
 
     public function create()
     {
-        $roles = Role::pluck('name', 'nmae'); //ambil semua lole 
-        return view('admin.user.index', compact('roles'));
+        $roles = Role::pluck('name', 'name'); //ambil semua lole 
+        return view('admin.users.create', compact('roles'));
     }
 
     public function store(Request $request)

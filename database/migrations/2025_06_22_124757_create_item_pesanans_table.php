@@ -20,7 +20,7 @@ return new class extends Migration
                 ->constrained()
                 ->onDelete('cascade');
             $table->integer('jumlah');
-            $table->decimal('subtotal');
+            $table->integer('subtotal');
             $table->timestamps();
         });
     }
